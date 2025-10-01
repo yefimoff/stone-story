@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stone Story: Find Your Home</title>
+	<link rel="stylesheet" href="mystyle.css?v=2">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!--Add icons to the Contact Us section-->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /><!--Add map, official library of Leaflet https://leafletjs.com/download.html-->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
+</head>
+<body>
+<div class="hero-container-canada">
+	<div class="header-container">
+		<h1>Stone Story.<h2><i>Canada</i></h2></h1>
+		<nav class="navbar">
+			<ul>
+			<li><a href="index.html">Home Page</a><br></li>
+			<li><a href="france.html">France</a><br></li>
+			<li><a href="canada.html">Canada</a><br></li>
+			<li><a href="netherlands.html">Netherlands</a></li>
+			<li><a href="blog.html">Journal</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<div class="background-image"></div>
+
+<div class="france_stargirl">
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/bowen-island-canada/the-epitome-of-waterfront-living-15329635" target="_blank">
+				<img src="images/canada_files/water.jpg" alt="White wall building">
+				<h2>The Epitome Of Waterfront Living</h2>
+				<h4>��2,407,031</h4>
+				<p>Experience the epitome of waterfront living at Seymour Landing, where the sun always shines and the views of the Vancouver skyline meets the sparkling ocean. Be amazed by seasonal visits from humpback whales & orcas that cruise the shoreline. </p>
+			</a>
+		</div>
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/pemberton-canada/meticulously-crafted-smarthome-near-top-golf-course-in-pemberton-14237594" target="_blank">
+				<img src="images/canada_files/forest.jpg" alt="Hight ceilings living room">
+				<h2>Meticulously Crafted Smart Home In Pemberton</h2>
+				<h4>��2,271,683</h4>
+				<p>Experience the pinnacle of luxury living in this meticulously crafted custom home in Pemberton�䏭 prestigious Sunstone neighbourhood, just a 5-minute drive from one of Canada�䏭 top-ranked golf courses, Big Sky Golf Club. Set against the breathtaking backdrop of Mount Currie, this exceptional residence offers an unparalleled lifestyle experience.</p>
+			</a>
+		</div>
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/hamilton-canada/experience-the-perfect-blend-of-luxury-comfort-country-living-at-485-concession-road-5-e-15254614" target="_blank">
+				<img src="images/canada_files/farm.jpg" alt="Farm in the field">
+				<h2>Experience The Perfect Blend Of Luxury, Comfort & Country</h2>
+				<h4>��4,874,793</h4>
+				<p>91.6-acre estate offers rolling farmland, dense woodlands & tranquil pond, ideal for peace, seclusion & entertaining. Fully renovated 2.5-storey, 6 bed, 6 bath home w/ attached 2 bed 2 bath guest house was upgraded by Neven Custom Homes in 2022/23, featuring $2M in premium finishes.</p>
+			</a>
+		</div>
+		<div class="image-box-france">
+		<a href="https://www.jamesedition.com/real_estate/kelowna-canada/stunning-estate-14624531" target="_blank">
+				<img src="images/canada_files/toronto.jpg" alt="Orange bedroom">
+				<h2>Stunning Estate</h2>
+				<h4>��2,437,429</h4>
+				<p>Stunning estate perched on 13.69 acres in the Ellison area. Beautiful three bedroom, five bathroom residence with high-end, unique architectural features, perfectly laid out as a sprawling one level rancher.</p>
+			</a>
+		</div>
+		<div class="image-box-france">
+		<a href="https://www.jamesedition.com/real_estate/cantley-canada/ottawa-outaouais-area-charming-home-with-a-cozy-cottage-feel-14244604" target="_blank">
+				<img src="images/canada_files/deck.jpg" alt="Stone antique house">
+				<h2>Ottawa / Outaouais Area, Charming Home With A Cozy Cottage Feel</h2>
+				<h4>��2,116,000</h4>
+				<p>Discover this exceptional property, a prestigious residence where luxury and comfort meet in an idyllic setting. This majestic house covers an impressive interior area of nearly 9000 square feet and is erected on a vast plot of 2 acres, offering complete privacy, no rear neighbors, and surrounded by mature trees. Located just twenty minutes from Parliament Hill in Ottawa, it perfectly embodies the quintessence of city living in the countryside, a peaceful haven close to the vibrant heart of the capital. </p>
+			</a>
+		</div>
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/tiny-canada/tiny-southern-georgian-bay-14390932" target="_blank">
+				<img src="images/canada_files/beton.jpg" alt="Spiral staircase">
+				<h2>Tiny, Southern Georgian Bay</h2>
+				<h4>��2,466,279</h4>
+				<p>Welcome to 190 Melissa Lane, a charming custom built French Inspired waterfront retreat nestled in the prestigious community of Cedar Ridge, Tiny, Ontario. This high end home is (approx.) 5,300 square feet and has 155 feet of west facing beach on a two acre lot, surrounded by majestic trees with recently renovated landscaping and outdoor lighting for added privacy and ambiance.</p>
+			</a>
+		</div>
+</div>
+<div id="map"></div>
+
+	<script>
+        // Create map and set view to Canada coordinates
+        var map = L.map('map').setView([45.03133803461593, -98.60975200403682], 4); // Coordinates for Canada (centered)
+
+        // Add OpenStreetMap layer (regular map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Array of locations within Canada with coordinates
+        var places = [
+            { name: "Waterfront Living", lat: 49.34177965696425, lng: -123.35681285166379 },
+            { name: "Smart Home In Pemberton", lat: 50.322010572713914, lng: -122.80389691918901 },
+            { name: "Country Home", lat: 43.18822853378471, lng: -79.80325998713153 },
+            { name: "Kelowna Estate", lat: 49.872249691663896,  lng: -119.44797091922044 },
+            { name: "Ottawa House", lat: 45.549397, lng: -75.699857 },
+            { name: "Southern Georgian Bay", lat: 44.49507419137634, lng: -80.18886039570526 }
+        ];
+
+        // Add markers for each location in Canada
+        places.forEach(function(place) {
+            L.marker([place.lat, place.lng]).addTo(map)
+                .bindPopup(`<b>${place.name}</b>`); // Popup with place name
+        });
+    </script>
+	
+<div class="about-us">
+	<div class="about-us-text">
+		<h2>About Us</h2>
+		
+		<p>Stone Story is the Europe's Largest Luxury Real Estate Agency, serving the needs of High-Net-Worth Individuals (HNWIs) in life's most valuable personal transactions.</p>
+		<p>Every month more than a million people from the US, UK, Germany, France, Spain and many other countries from around the globe come to our website in the pursuit of luxury real estate in a catalog of 	more than 500,000 of the best listings from over 20,000 sellers worldwide.</p> 
+		<p>Our goal is to bring buyers and sellers together regardless of where they are in the world, enabling great deals to be made.</p>
+	</div>
+	<div class="about-us-img">
+		<img src="images/animation.gif" alt="Light wall gif" style="width: 350px; height: 450px;">
+	</div>
+</div>
+<footer class="footer-canada">
+    <div class="contact-us">
+        <h3>Contact Us</h3>
+        <p>Stone Story Luxury Real Estate</p>
+        <p>123 Luxury Avenue, Suite 456</p>
+        <p>Paris, France, 75001</p>
+        <p>Email: info@stonestory.com</p>
+        <p>Phone: +33 1 23 45 67 89</p>
+    </div>
+    <div class="social-media">
+        <p>Follow us on social media</p><br>
+        <ul>
+            <li><a href="https://www.instagram.com/jameseditioncom/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
+            <li><a href="https://www.threads.net/@sothebys" target="_blank"><i class="fab fa-twitter"></i>Threads</a></li>
+			<li><a href="https://www.youtube.com/@jameseditioncom" target="_blank"><i class="fab fa-youtube"></i>Youtube</a></li>
+        </ul>
+    </div>
+</footer>
+<script src="https://www.drv.tw/inc/wd.js?s=stonestoryrealestateie"></script></body>
+</html>
