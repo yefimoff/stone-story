@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stone Story: Find Your Home</title>
+	<link rel="stylesheet" href="mystyle.css?v=2">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!--Add icons to the Contact Us section-->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /><!--Add map, official library of Leaflet https://leafletjs.com/download.html-->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
+</head>
+<body>
+<div class="hero-container-neth">
+	<div class="header-container">
+		<h1>Stone Story.<h2><i>Netherlands</i></h2></h1>
+		<nav class="navbar">
+			<ul>
+			<li><a href="index.html">Home Page</a><br></li>
+			<li><a href="france.html">France</a><br></li>
+			<li><a href="canada.html">Canada</a><br></li>
+			<li><a href="netherlands.html">Netherlands</a></li>
+			<li><a href="blog.html">Journal</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<div class="background-image"></div>
+
+<div class="france_stargirl">
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/amsterdam-netherlands/fully-renovated-108m2-residence-in-de-witte-keizer-offers-high-ceilings-and-southwest-garden-14877891" target="_blank">
+				<img src="images/neth_files/i.jpg" alt="White living room">
+				<h2>Fully Renovated 108m2 Residence In "De Witte Keizer"</h2>
+				<h4>��1,395,000</h4>
+				<p>Beautifully nestled in a curve of the widest canal in Amsterdam, this fully and exceptionally high-quality renovated 108 m簡 apartment (including mezzanine) is located on the ground floor of the magnificent, historic building �𡤜e Witte Keizer.�� The apartment features impressively high ceilings (4.32 m), authentic details, large windows, and a lovely 40 m簡 garden facing southwest.</p>
+			</a>
+		</div>
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/amsterdam-netherlands/beautiful-and-atmospheric-canal-house-spanning-172-m-on-the-herengracht-14781321" target="_blank">
+				<img src="images/neth_files/cant.jpg" alt="Old-style dining room with a large chandelier">
+				<h2>Beautiful And Atmospheric Canal House Spanning 172 M簡 On The Herengracht.</h2>
+				<h4>��1,975,000</h4>
+				<p>This beautiful and particularly atmospheric canal house, with an area of more than 170 m2, extends over two floors and offers a panoramic view over the Herengracht. The apartment is equipped with numerous antique and original elements and has recently been renovated under the guidance of a renowned international architect.</p>
+			</a>
+		</div>
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/amsterdam-netherlands/unique-19th-century-orangery-of-322-m-with-a-tropical-garden-and-69-m-garden-house-14791215" target="_blank">
+				<img src="images/neth_files/tortoise.jpg" alt="Orangerie">
+				<h2>Unique 19th Century Orangery Of 322 M簡 With A Tropical Garden And 69 M簡 Garden House</h2>
+				<h4>��10,500,000</h4>
+				<p>91.6-acre estate offers rolling farmland, dense woodlands & tranquil pond, ideal for peace, seclusion & entertaining. Fully renovated 2.5-storey, 6 bed, 6 bath home w/ attached 2 bed 2 bath guest house was upgraded by Neven Custom Homes in 2022/23, featuring $2M in premium finishes.</p>
+			</a>
+		</div>
+		<div class="image-box-france">
+		<a href="https://www.jamesedition.com/real_estate/amsterdam-netherlands/schinkelhavenkade-6-1075-vs-amsterdam-14669438="_blank">
+				<img src="images/neth_files/this.jpg" alt="Roof lights long front rooms">
+				<h2>Schinkelhavenkade 6 1075 Vs Amsterdam</h2>
+				<h4>��3,000,000</h4>
+				<p>We are offering this unique residence on the lower floors (approx. 346m簡) with five bedrooms and a sunny roof terrace, located at the end of the Vondel Park. Also in on the Amstelveenseweg side a possibility to realize 33m2 office/practice space incl. own front door/address no. 70-h. The peaceful location by the water combined with the spacious layout of the residence, make living here incredibly comfortable. No expense was spared during the renovation.</p>
+			</a>
+		</div>
+		<div class="image-box-france">
+		<a href="https://www.jamesedition.com/real_estate/leiden-netherlands/noordeindeplein-2-b-2311-ah-leiden-14932227" target="_blank">
+				<img src="images/neth_files/canal.jpg" target="_blank" alt="Canal bank 3-store house">
+				<h2>Noordeindeplein 2 B 2311 Ah Leiden</h2>
+				<h4>��1,998,000</h4>
+				<p>One of the most beautiful properties in Leiden, with a beautiful garden bordering the river. This type of unique object rarely comes to the market. When entering the city via the Haagweg, a block of five stately houses, located on a peninsula on the Oude Rijn, immediately catches the eye. </p>
+			</a>
+		</div>
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/muiderberg-netherlands/modern-and-sustainable-detached-house-on-eikenlaan-in-muiderberg-15127577" target="_blank">
+				<img src="images/neth_files/cabin.jpg" alt="Refusrbished sunhouse in a stone house">
+				<h2>Modern And Sustainable Detached House On Eikenlaan In Muiderberg</h2>
+				<h4>��1,595,000</h4>
+				<p>Are you looking for a turnkey home that combines style, comfort, and sustainability? This stunning 1930s detached villa on Eikenlaan in the picturesque village of Muiderberg offers everything you could wish for and more! Completely renovated and expanded in 2015 with attention to detail and craftsmanship, this property is a true gem.</p>
+			</a>
+		</div>
+</div>
+<div id="map"></div>
+
+	<script>
+        // Create map and set view to France coordinates
+        var map = L.map('map').setView([52.32597053220389, 4.866723562447482], 9); // Coordinates for France (centered)
+
+        // Add OpenStreetMap layer (regular map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Array of locations within France with coordinates
+        var places = [
+            { name: "De Witte Keizer", lat: 51.9191947616945, lng: 4.483180997659374 },
+            { name: "Herengracht", lat: 52.375598262072, lng: 4.887948090924612 },
+            { name: "19th Century Orangery", lat: 52.3625380135138, lng: 4.880076011174895 },
+            { name: "Schinkelhavenkade 6 ", lat: 52.3557580814923, lng: 4.854369284186174 },
+            { name: "Noordeindeplein", lat: 52.160400070633415, lng: 4.480323282329836 },
+            { name: "Muiderberg", lat: 52.32523062862157,lng: 5.116203911173084 }
+        ];
+
+        // Add markers for each location in France
+        places.forEach(function(place) {
+            L.marker([place.lat, place.lng]).addTo(map)
+                .bindPopup(`<b>${place.name}</b>`); // Popup with place name
+        });
+    </script>
+	
+<div class="about-us">
+	<div class="about-us-text">
+		<h2>About Us</h2>
+		
+		<p>Stone Story is the Europe's Largest Luxury Real Estate Agency, serving the needs of High-Net-Worth Individuals (HNWIs) in life's most valuable personal transactions.</p>
+		<p>Every month more than a million people from the US, UK, Germany, France, Spain and many other countries from around the globe come to our website in the pursuit of luxury real estate in a catalog of 	more than 500,000 of the best listings from over 20,000 sellers worldwide.</p> 
+		<p>Our goal is to bring buyers and sellers together regardless of where they are in the world, enabling great deals to be made.</p>
+	</div>
+	<div class="about-us-img">
+		<img src="images/animation.gif" alt="Light wall gif" style="width: 350px; height: 450px;">
+	</div>
+</div>
+<footer class="footer-neth">
+    <div class="contact-us">
+        <h3>Contact Us</h3>
+        <p>Stone Story Luxury Real Estate</p>
+        <p>123 Luxury Avenue, Suite 456</p>
+        <p>Paris, France, 75001</p>
+        <p>Email: info@stonestory.com</p>
+        <p>Phone: +33 1 23 45 67 89</p>
+    </div>
+    <div class="social-media">
+        <p>Follow us on social media</p><br>
+        <ul>
+            <li><a href="https://www.instagram.com/jameseditioncom/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
+            <li><a href="https://www.threads.net/@sothebys" target="_blank"><i class="fab fa-twitter"></i>Threads</a></li>
+			<li><a href="https://www.youtube.com/@jameseditioncom" target="_blank"><i class="fab fa-youtube"></i>Youtube</a></li>
+        </ul>
+    </div>
+</footer>
+<script src="https://www.drv.tw/inc/wd.js?s=stonestoryrealestateie"></script></body>
+</html>
