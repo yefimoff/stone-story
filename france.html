@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stone Story: Find Your Home</title>
+	<link rel="stylesheet" href="mystyle.css?v=2">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!--Add icons to the Contact Us section via Font Awesome library-->
+	 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /><!--Add map, official library of Leaflet https://leafletjs.com/download.html-->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script> 
+</head>
+<body>
+<div class="hero-container-france">
+	<div class="header-container">
+		<h1>Stone Story.<h2><i>France</i></h2></h1>
+		<nav class="navbar">
+			<ul>
+			<li><a href="index.html">Home Page</a><br></li>
+			<li><a href="france.html">France</a><br></li>
+			<li><a href="canada.html">Canada</a><br></li>
+			<li><a href="netherlands.html">Netherlands</a></li>
+			<li><a href="blog.html">Journal</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
+<div class="background-image"></div>
+
+<div class="france_stargirl">
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/roquebrune-cap-martin-france/aumonerie-historical-estate-in-the-heart-of-roquebrune-14015384" target="_blank">
+				<img src="images/france_files/sea.jpg" alt="Roquebrune terrace">
+				<h2>Aum繫nerie, Historical Estate In The Heart Of Roquebrune</h2>
+				<h4>��20,500,000</h4>
+				<p>Located in the heart of Roquebrune, just next to the fortress and facing Monaco and Cap Martin, we are offering for sale one of the real estate jewels of the C繫te d�禑zur. The property, originally built in the 13th century by a monastic order, has always been a landmark for the village throughout the years. </p>
+			</a>
+		</div>
+		<div class="image-box-france">
+		<a href="https://www.jamesedition.com/real_estate/toulouse-france/exceptional-listed-renaissance-chateau-with-outbuildings-15388789" target="_blank">
+			<img src="images/france_files/castle.jpg" target="_blank" alt="French castle">
+				<h2>Exceptional Listed Renaissance Ch璽teau With Outbuildings</h2>
+				<h4>��2,380,000</h4>
+				<p>Just a few minutes from Saint-Lizier, a UNESCO World Heritage Site, and from a charming village offering all amenities, stands a remarkable Renaissance ch璽teau. Perched on its promontory, it watches majestically over the village of Prat-Bonrepaux. </p>
+			</a>
+		</div>
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/paris-8eme-france/sublime-renovated-and-furnished-apartment-with-views-of-the-elysee-palace-14964790" target="_blank">
+				<img src="images/france_files/paris.jpg" alt="Paris interior">
+				<h2>Apartment With Views Of The Elys矇e Palace</h2>
+				<h4>��16,000,000</h4>
+				<p>Paris 8. Palais de l�込lys矇e.<br>
+				In a luxury building, on the second floor with elevator, fabulous 350 m2 (319 m2 loi Carrez) reception apartment with exceptional renovation by one of the most renowned architectural firms.</p>
+			</a>
+			
+		</div>
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/grasse-france/expansive-bastide-style-manor-near-cannes-with-large-land-plot-11714222" target="_blank">
+				<img src="images/france_files/villa.jpg" alt="Italian style castle-villa">
+				<h2>Expansive Bastide Style Manor Near Cannes With Large Land Plot</h2>
+				<h4>��6,500,000</h4>
+				<p>This authentic bastide-style manor, nestled in the tranquil environs of Auribeau-sur-Siagne, combines historical charm with modern amenities, just 15 minutes from the bustling Croisette of Cannes. </p>
+			</a>
+		</div>
+		<div class="image-box-france">
+		<a href="https://www.jamesedition.com/real_estate/triel-sur-seine-france/treil-sur-seine-an-elegant-period-property-15353808" target="_blank">
+			<img src="images/france_files/swaston.jpg" alt="Faitytail style house foyer">
+				<h2>Treil Sur Seine �� An Elegant Period Property</h2>
+				<h4>��1,790,000</h4>
+				<p>This elegant early 20th century villa with annexes is set in about 1.5 hectares of grounds.
+				The main house includes a living/reception room and dining room with a fireplace, a kitchen, and a magnificent near 44 sqm billiard room featuring 5-metre high ceilings and mahogany panelling opening onto a terrace with a pergola. </p>
+			</a>
+		</div>
+		<div class="image-box-france">
+			<a href="https://www.jamesedition.com/real_estate/les-gets-france/semi-chalet-in-les-gets-with-ski-in-ski-out-access-15051334" target="_blank">
+				<img src="images/france_files/chalet.jpg" alt="Winter chalet">
+				<h2>Semi Chalet In Les Gets With Ski In Ski Out Access</h2>
+				<h4>��1,400,000</h4>
+				<p>Located in Les Gets, a popular family resort just over an hour�䏭 drive from Geneva airport, this ski-in, ski-out semi-chalet enjoys elevated views over the centre of the resort whilst offering easy access to the vast Portes du Soleil ski domain.</p>
+			</a>
+		</div>
+</div>
+<div id="map"></div>
+
+	<script>
+        // Create map and set view to France coordinates
+        var map = L.map('map').setView([46.603354, 1.888334], 6); // Coordinates for France (centered)
+
+        // Add OpenStreetMap layer (regular map)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Array of locations within France with coordinates
+        var places = [
+            { name: "Aum繫nerie", lat: 43.76507150687579, lng:7.459770574400684 },
+            { name: "Renaissance Ch璽teau", lat: 43.603270, lng: 1.442260 },
+            { name: "Paris Apartment", lat: 48.86815277453064,  lng: 2.3031003520390043 },
+            { name: "Cannes Manor", lat: 43.60839143393412, lng: 6.919599248142006 },
+            { name: "Treil Sur Seine", lat: 48.982570027952185,  lng: 2.0006039557242383 },
+            { name: "Semi Chalet", lat: 46.15425411675165, lng: 6.653034995143986 }
+        ];
+
+        // Add markers for each location in France
+        places.forEach(function(place) {
+            L.marker([place.lat, place.lng]).addTo(map)
+                .bindPopup(`<b>${place.name}</b>`); // Popup with place name
+        });
+    </script>
+	
+<div class="about-us">
+	<div class="about-us-text">
+		<h2>About Us</h2>
+		
+		<p>Stone Story is the Europe's Largest Luxury Real Estate Agency, serving the needs of High-Net-Worth Individuals (HNWIs) in life's most valuable personal transactions.</p>
+		<p>Every month more than a million people from the US, UK, Germany, France, Spain and many other countries from around the globe come to our website in the pursuit of luxury real estate in a catalog of 	more than 500,000 of the best listings from over 20,000 sellers worldwide.</p> 
+		<p>Our goal is to bring buyers and sellers together regardless of where they are in the world, enabling great deals to be made.</p>
+	</div>
+	<div class="about-us-img">
+		<img src="images/animation.gif" alt="Light wall gif" style="width: 350px; height: 450px;">
+	</div>
+</div>
+<footer class="footer-france">
+    <div class="contact-us-france">
+        <h3>Contact Us</h3>
+        <p>Stone Story Luxury Real Estate</p>
+        <p>123 Luxury Avenue, Suite 456</p>
+        <p>Paris, France, 75001</p>
+        <p>Email: info@stonestory.com</p>
+        <p>Phone: +33 1 23 45 67 89</p>
+    </div>
+    <div class="social-media">
+        <p>Follow us on social media</p><br>
+        <ul>
+            <li><a href="https://www.instagram.com/jameseditioncom/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
+            <li><a href="https://www.threads.net/@sothebys" target="_blank"><i class="fab fa-twitter"></i>Threads</a></li>
+			<li><a href="https://www.youtube.com/@jameseditioncom" target="_blank"><i class="fab fa-youtube"></i>Youtube</a></li>
+        </ul>
+    </div>
+</footer>
+<script src="https://www.drv.tw/inc/wd.js?s=stonestoryrealestateie"></script></body>
+</html>
